@@ -1,4 +1,4 @@
-// Matthew Gomex
+// Matthew Gomez
 // COP 3223
 // 8/20/2019
 // Generates a strand of DNA based on user input
