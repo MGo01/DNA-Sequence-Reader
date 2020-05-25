@@ -3,10 +3,6 @@
 // 8/20/2019
 // Generates a strand of DNA based on pre-existing files
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
 #include "DNASeqAnalysis.h"
 
 void printQueue(Queue *q);
@@ -453,8 +449,8 @@ int main(void)
 {
   LinkedList *userList = NULL;
   Protein *userProtein = NULL;
-  char buffer[1024];
-  int choice, loop = 1;
+  char buffer[MAX_LENGTH];
+  int choice;
 
   printf("\nDNA Sequence Analysis Tool\n");
   printf("\n--------------------------------\n");
@@ -489,56 +485,48 @@ int main(void)
       case 1:
       {
         userList = copyStrand(buffer);
-        loop = 1;
         break;
       }
 
       case 2:
       {
         userList = makeComplementaryStrand(userList);
-        loop = 1;
         break;
       }
 
       case 3:
       {
         userList = makeRNAStrand(userList);
-        loop = 1;
         break;
       }
 
       case 4:
       {
         userProtein = createSequence(buffer, userList);
-        loop = 1;
         break;
       }
 
       case 5:
       {
         checkForGeneticDisorders(userProtein);
-        loop = 1;
         break;
       }
 
       case 6:
       {
         printStrand(userList);
-        loop = 1;
         break;
       }
 
       case 7:
       {
         printQueue(userProtein->sequence);
-        loop = 1;
         break;
       }
 
       case 8:
       {
         printf("UNDER CONSTRUCTION\n");
-        loop = 1;
         break;
       }
 
@@ -552,7 +540,6 @@ int main(void)
       default:
       {
         printf("Invalid selection, please enter an integer between 1 and 9\n");
-        loop = 1;
         break;
       }
     }
